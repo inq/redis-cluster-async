@@ -12,15 +12,19 @@ readme = "README.md"
 edition = "2018"
 
 [dependencies]
-crc16 = "0.4"
-futures = "0.3"
-rand = "0.7"
-redis = { version = "0.15", features = ["tokio-rt-core"] }
-tokio = { version = "0.2", features = ["time"] }
-log = "0.4"
+crc16 = "*"
+futures = "*"
+rand = "*"
+tokio = { version = "*", features = ["time"] }
+log = "*"
+
+[dependencies.redis]
+git = "https://github.com/Terkwood/redis-rs.git"
+default-features = false
+features = ["cluster", "streams", "geospatial", "tokio-comp", "tokio-rt-core", "script"]
 
 [dev-dependencies]
-lazy_static = "1"
+lazy_static = "*"
 tokio = { version = "0.2", features = ["macros", "full"] }
-env_logger = "0.7"
-proptest = "0.9"
+env_logger = "*"
+proptest = "*"
